@@ -8,7 +8,6 @@ window.bgcolor("black")
 window.setup(width=800, height=600)
 window.tracer()
 
-
 # Paddle L
 paddle_l = turtle.Turtle()
 paddle_l.speed(0)
@@ -53,6 +52,7 @@ pen.write("Player 1:      Player 2:  ", align="center", font=("Arial", 24, "bold
 score_1 = 0
 score_2 = 0
 
+
 # Function
 
 def paddle_l_up():
@@ -60,19 +60,24 @@ def paddle_l_up():
     y += 20
     paddle_l.sety(y)
 
+
 def paddle_l_down():
     y = paddle_l.ycor()
     y -= 20
     paddle_l.sety(y)
 
+
 def paddle_r_up():
     y = paddle_r.ycor()
     y += 20
     paddle_r.sety(y)
+
+
 def paddle_r_down():
     y = paddle_r.ycor()
     y -= 20
     paddle_r.sety(y)
+
 
 # Keyboard binds
 window.listen()
@@ -115,10 +120,10 @@ while True:
 
     # Paddle collision
 
-    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_r.ycor() + 40 and ball.ycor() > paddle_r.ycor() -40):    # Right Paddle
+    if (340 < ball.xcor() < 350) and (paddle_r.ycor() + 40 > ball.ycor() > paddle_r.ycor() - 40):  # Right Paddle
         ball.setx(340)
         ball.dx *= -1
 
-    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_l.ycor() + 40 and ball.ycor() > paddle_l.ycor() -40):    # Left Paddle
+    if (-340 > ball.xcor() > -350) and (paddle_l.ycor() + 40 > ball.ycor() > paddle_l.ycor() - 40):  # Left Paddle
         ball.setx(-340)
         ball.dx *= -1
